@@ -6,6 +6,7 @@ on:
   #push:
   #  branches:
   #    - main
+  workflow_dispatch:
 
 jobs:
   check-releases:
@@ -16,14 +17,26 @@ jobs:
       
     - name: Get newest podcasts
       run: |
-        xxx
+        # doppelgaenger tech talk get latest 3 podcasts
+        cd podcasts
+        for file in `curl --silent https://feeds.megaphone.fm/LINDALA4208458418 | grep -E '(<enclosure url)' | sed -e 's/^[ \t]*//' | cut -d'"' -f2 | head -3 | cut -d'?' -f1`
+        do
+          wget -q $file
+        done
         
     - name: Cleanup old podcasts
       run: |
-        xxx
+        # delete files older 30 days
+        cd podcasts
+        find . -ctime +30 -delete
 
-    - name: Pull request
-      run: |
-        xxx
+    - name: Commit & Push changes
+      uses: actions-js/push@master
+      with:
+        github_token: ${{ secrets.GITHUB_TOKEN }}
+        author_email: 'gf@zerohat.net'
+        author_name: 'gerihifi'
+        message: 'adding new podcasts'
+        
 
 
