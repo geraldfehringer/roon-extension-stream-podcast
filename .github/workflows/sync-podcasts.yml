@@ -1,0 +1,29 @@
+name: Sync my podcasts
+
+on:
+  schedule:
+    - cron: '5 2 * * *'
+  #push:
+  #  branches:
+  #    - main
+
+jobs:
+  check-releases:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout repo
+      uses: actions/checkout@v2
+      
+    - name: Get newest podcasts
+      run: |
+        xxx
+        
+    - name: Cleanup old podcasts
+      run: |
+        xxx
+
+    - name: Pull request
+      run: |
+        xxx
+
+
