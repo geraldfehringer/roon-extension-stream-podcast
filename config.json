@@ -1,0 +1,14 @@
+{
+    "roonstate": {
+        "tokens": {
+            "e46cdce2-3447-4c87-a7e4-88ecc362232f": "8f17b4b8-4f28-4ff6-9cb3-b5626ab3c821"
+        },
+        "paired_core_id": "e46cdce2-3447-4c87-a7e4-88ecc362232f"
+    },
+    "settings": {
+        "output": {
+            "output_id": "17015a0bbbe8e386b9a99c539f734aeee2bb",
+            "name": "IANdac"
+        }
+    }
+}
